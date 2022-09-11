@@ -19,10 +19,13 @@ public class LineComparison {
     }
 
     public static void main(String[] args) {
-
         System.out.println("Welcome to line comparison computation program");
         LineComparison line1 = new LineComparison();
-        System.out.println("Length of line is :" + line1.insertCoOrdinates());
-
+        LineComparison line2 = new LineComparison();
+        if (line1.insertCoOrdinates() > line2.insertCoOrdinates()) {
+            System.out.println("line1 is greater ....");
+        } else {
+            System.out.println("line 2 is greater");
+        }
     }
 }
