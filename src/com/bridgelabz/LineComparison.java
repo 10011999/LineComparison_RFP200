@@ -3,29 +3,51 @@ package com.bridgelabz;
 import java.util.Scanner;
 
 public class LineComparison {
-    Scanner sc = new Scanner(System.in);
-
-    public float insertCoOrdinates() {
-        System.out.println("Enter value of x1:");
-        int x1 = sc.nextInt();
-        System.out.println("Enter value of x2:");
-        int x2 = sc.nextInt();
-        System.out.println("Enter value of y1:");
-        int y1 = sc.nextInt();
-        System.out.println("Enter value of y2:");
-        int y2 = sc.nextInt();
-
-        return (float) (Math.sqrt((x2 - x1) * (x2 - x1) + ((y2 - y1) * (y2 - y1))));
-    }
-
     public static void main(String[] args) {
-        System.out.println("Welcome to line comparison computation program");
-        LineComparison line1 = new LineComparison();
-        LineComparison line2 = new LineComparison();
-        if (line1.insertCoOrdinates() > line2.insertCoOrdinates()) {
-            System.out.println("line1 is greater ....");
+
+        Line l1 = new Line();
+        double length1 = l1.getInputForLine1();
+        double length2 = l1.getInputForLine2();
+        Line.checkEquality(length1, length2);
+    }
+}
+class Line {
+    Scanner sc = new Scanner(System.in);
+    public double getInputForLine1() {
+        System.out.println("Enter Inputs of line 1");
+        System.out.println("Enter the first (x1,y1) point");
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+        System.out.println("Enter the second (x2, y2) point");
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+        double x = Math.pow((x2 - x1), 2);
+        double y = Math.pow((y2 - y1), 2);
+        return calculateLength(x, y);
+    }
+    public double getInputForLine2() {
+        System.out.println("Enter Inputs of line 2");
+        System.out.println("Enter the first (x1,y1) point");
+        int x1 = sc.nextInt();
+        int y1 = sc.nextInt();
+        System.out.println("Enter the second (x2, y2) point");
+        int x2 = sc.nextInt();
+        int y2 = sc.nextInt();
+        double x = Math.pow((x2 - x1), 2);
+        double y = Math.pow((y2 - y1), 2);
+        return calculateLength(x, y);
+    }
+    public double calculateLength(double x, double y) {
+        double length = (Math.sqrt(x + y));
+        System.out.println("Length of a line : " + length);
+        return length;
+    }
+    public static void checkEquality(double length1, double length2) {
+
+        if (length1 == length2) {
+            System.out.println("lines are equal ");
         } else {
-            System.out.println("line 2 is greater");
+            System.out.println("Lines2 are not equal");
         }
     }
 }
